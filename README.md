@@ -1,4 +1,4 @@
-#Procedure d'instalation
+# Procedure d'instalation
 
 Placer le repertoire backend dans un dossier du serveur (lamp/xamp/wamp...).
 Créer un nouveau projet angular dans ce même repertoire et remplacer le contenu de /src/app par celui du repertoire frontend.
