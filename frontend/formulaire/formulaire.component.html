@@ -1,0 +1,78 @@
+<h1>Formulaire d'inscription</h1>
+
+<div id="global">
+    <div id="gauche">
+        <form #f="ngForm"  [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
+            <p>
+                <label for="nom">Nom :</label><br />
+                <input type="text" class="form-control form-control-style" name="nom" id="nom" pattern="[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{1,}" 
+                title="Votre nom ne doit contenir que des lettres et au moins un caractère" required [appError]="validationNom ()" [(ngModel)]="nom" [formControl]="reactiveForm" formControlName="nom"/>
+                    
+                <br />
+                <label for="prenom">Prénom :</label><br />
+                <input type="text" class="form-control form-control-style" name="prenom" id="prenom" pattern="[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{1,}" 
+                title="Votre prénom ne doit contenir que des lettres et au moins un caractère" required [appError]="validationPrenom ()" [(ngModel)]="prenom" [formControl]="reactiveForm" formControlName="prenom"/>
+                    
+                <br />
+                <label for="adresse">Adresse :</label><br />
+                <input type="text" class="form-control form-control-style" name="adresse" id="adresse" pattern="[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ,._\s-]{1,}" 
+                title="Votre adresse ne doit contenir que des chiffres et lettres et au moins un caractère" required [appError]="validationAdresse ()" [(ngModel)]="adresse" [formControl]="reactiveForm" formControlName="adresse"/>
+                    
+                <br />
+                <label for="ville">Ville :</label><br />
+                <input type="text" class="form-control form-control-style" name="ville" id="ville" pattern="[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{1,}" 
+                title="Votre ville ne doit contenir que des lettres et au moins un caractère" required [appError]="validationVille ()" [(ngModel)]="ville" [formControl]="reactiveForm" formControlName="ville"/>
+                    
+                <br />
+                <label for="codepostal">Code postal :</label><br />
+                <input type="text" class="form-control form-control-style" name="codepostal" id="codepostal" pattern="^(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}$"  
+                title="Votre code postal ne doit contenir que des chiffres et faire 4 ou 5 caractères" required [appError]="validationCP ()" [(ngModel)]="codepostal" [formControl]="reactiveForm" formControlName="codepostal"/>
+                            
+                <br />
+                <label for="telephone">Téléphone :</label><br />
+                <input type="text" class="form-control form-control-style" name="telephone" id="telephone" pattern = "((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))" 
+                title="Votre numéro de téléphone ne doit contenir que des chiffres et faire 10 caractères" [appError]="validationTel ()" [(ngModel)]="telephone" [formControl]="reactiveForm" formControlName="telephone"/>
+                    
+                <br />
+                <label for="email">Email :</label><br />
+                <input type="text" class="form-control form-control-style" name="email" id="email" pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" 
+                title="Votre adresse mail doit être au bon format" ngModel required [appError]="validationEmail ()" [(ngModel)]="email" [formControl]="reactiveForm" formControlName="email"/>
+                    
+                <br />
+                <label for="civilite">Civilité</label><br />
+                <select name="civilite" id="civilite" [(ngModel)]="civilite" [ngModelOptions]="{standalone: true}">
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
+                    
+                <br />
+                <label for="identifiant">Identifiant :</label><br />
+                <input type="text" class="form-control form-control-style" name="identifiant" id="identifiant"  [(ngModel)]="identifiant" required  [formControl]="reactiveForm" formControlName="identifiant"/>
+                     
+                <br />
+                <label for="motdepasse">Mot de passe :</label><br />
+                <input type="password" class="form-control form-control-style" name="motdepasse" id="motdepasse" [(ngModel)]="motdepasse" required  [formControl]="reactiveForm" formControlName="motdepasse" [appError]="validationPassword ()"/>
+                           
+                <br />
+                <button class="btn btn-primary" type="submit" >Envoi</button>
+                
+                <br />
+            </p>
+        </form>
+    </div>
+              
+    <div id="droit">
+        <label for="recapitulatif">Recapitulatif :</label><br />
+        <p name="recapitulatif" id="recapitulatif">
+            Nom:{{nom | uppercase}} <br /> 
+            Prenom: {{prenom}} <br /> 
+            Adresse: {{adresse}} <br />
+            Ville: {{ville}} <br /> 
+            Code postal: {{codepostal}} <br /> 
+            Telephone: {{telephone | phoneNumber}} <br /> 
+            Email: {{email}} <br />
+            Identifiant: {{identifiant}} <br />
+        </p>
+    </div>
+</div>

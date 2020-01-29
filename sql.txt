@@ -1,0 +1,44 @@
+
+DROP DATABASE IF EXISTS marketplace;
+CREATE DATABASE marketplace CHARACTER SET 'utf8';
+
+USE marketplace; 
+
+CREATE USER 'market-manager'@'localhost' IDENTIFIED BY 'P@$$w0rd';
+GRANT CREATE, SELECT, INSERT, DELETE ON marketplace TO 'market-manager'@'localhost';
+FLUSH PRIVILEGES;
+
+CREATE TABLE marketplace.Client ( 
+  id INT NOT NULL AUTO_INCREMENT ,  
+  nom VARCHAR(100) NOT NULL ,  
+  prenom VARCHAR(100) NOT NULL ,  
+  adresse VARCHAR(100) NOT NULL ,    
+PRIMARY KEY  (id)
+) ENGINE = MyISAM;
+
+ALTER TABLE client 
+ADD ville VARCHAR(100) NOT NULL 
+AFTER adresse, 
+ADD codepostal VARCHAR(6) NOT NULL AFTER ville, 
+ADD telephone VARCHAR(25) NOT NULL AFTER codepostal, 
+ADD email VARCHAR(100) NOT NULL AFTER telephone, 
+ADD civilite VARCHAR(25) NOT NULL AFTER email, 
+ADD identifiant VARCHAR(100) NOT NULL AFTER civilite, 
+ADD motdepasse VARCHAR(100) NOT NULL AFTER identifiant;
+
+CREATE TABLE marketplace.Article ( 
+  id INT NOT NULL AUTO_INCREMENT ,  
+  nom VARCHAR(100) NOT NULL ,  
+  description VARCHAR(100) NOT NULL ,  
+  quantite int(25) NOT NULL ,    
+  prix float(25) NOT NULL ,    
+PRIMARY KEY  (id)
+) ENGINE = MyISAM;
+
+INSERT INTO `article` (`nom`, `description`, `quantite`, `prix`) VALUES
+('Raybeer', 'Biere energisante', '88', '2.50'),
+('Biobeer', 'Biere biologique', '52', '3.30'),
+('Beereco', 'Biere economique', '42', '0.99'),
+('FELDBRAU', 'Biere de luxe', '45', '4.99'),
+('Beer', 'Biere clasique', '108', '2.00');
+COMMIT;

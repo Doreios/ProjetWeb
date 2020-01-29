@@ -1,0 +1,14 @@
+<form #f="ngForm"  [formGroup]="logForm" (ngSubmit)="onSubmit()" novalidate>
+    <p>
+        <label for="identifiant">Identifiant :</label><br />
+        <input type="text" class="form-control form-control-style" name="identifiant" id="identifiant"  [(ngModel)]="identifiant" required  [formControl]="reactiveForm" formControlName="identifiant"/>
+                     
+        <br />
+        <label for="motdepasse">Mot de passe :</label><br />
+        <input type="password" class="form-control form-control-style" name="motdepasse" id="motdepasse" [(ngModel)]="motdepasse" required  [formControl]="reactiveForm" formControlName="motdepasse"/>
+                           
+        <br />
+        <button class="btn btn-primary" type="submit" >Envoi</button>
+    </p>
+</form>
+<a href="/formulaire">Pas encore inscrit?</a>

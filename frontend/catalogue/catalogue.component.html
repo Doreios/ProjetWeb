@@ -1,0 +1,23 @@
+<header></header>
+<input type="text" id="search" name="search"
+		autocomplete="off"
+        placeholder="Rechercher"
+		(keyup)="majTab();">
+        
+<table id="matable">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th></th>
+    </tr>
+    </thead>	
+    <tbody id="body" *ngFor="let item of articles | async">
+    <tr>
+        <td>{{ item.nom }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.prix }}€</td>
+        <td><button type="button" (click)="addToPanier(item)">Ajouter au panier</button>
+    </tbody>
+</table>

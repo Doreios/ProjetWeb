@@ -1,0 +1,19 @@
+<header></header>
+<h1>Panier</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th></th>
+    </tr>
+    </thead>	
+    <tbody id="body" *ngFor="let item of articles | async">
+    <tr>
+        <td>{{ item.nom }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.prix }}€</td>
+        <td><button type="button" (click)="deleteFromPanier(item)">Supprimer du panier</button>
+    </tbody>
+</table>

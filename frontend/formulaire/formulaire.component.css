@@ -1,0 +1,24 @@
+body{
+    padding-top: 2%;
+    padding-right: 60%;
+    padding-left: 5%;
+}
+
+.form-control-style{
+    margin-bottom: -10px; 
+}
+
+#global{
+    overflow:auto;
+}
+ 
+#gauche{
+    padding: 2%;
+    float:left;
+    width:60%;
+}
+
+#droit{
+    padding: 2%;
+    overflow:auto;
+}
